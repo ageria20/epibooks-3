@@ -1,16 +1,12 @@
 import { ListGroup } from "react-bootstrap";
+import SingleComment from './SingleComment'
 
 
 const CommentList = props => {
     return (
         <ListGroup>
-        {props.comments.map((comment, index) => {
-            return(     
-            <ListGroup.Item key={index}>
-              {comment.author} <span>{comment.comment}</span>
-            </ListGroup.Item>
-            )
-})};
+        {props.comments.map((comment, index) => <SingleComment key={index} comment={comment.comment} author={comment.author}/>
+)}
       
       </ListGroup> 
     )

@@ -12,17 +12,17 @@ class SingleBook extends Component {
     return (
       <>
       <Card
-        onClick={() => this.setState({ selected: !this.state.selected })}
-        style={{ border: this.state.selected ? '3px solid red' : 'none' }}
+        onClick={() => this.setState({ isSelected: !this.state.isSelected })}
+        style={{ border: this.state.isSelected ? '3px solid red' : 'none' }}
       >
         <Card.Img variant="top" src={this.props.book.img} />
         <Card.Body>
           <Card.Title style={{ color: 'black' }}>
             {this.props.book.title}
           </Card.Title>
+        {this.state.isSelected && <CommentArea asin={this.props.book.asin}/>}
         </Card.Body>
       </Card>
-      {this.state.isSelected && <CommentArea />}
       </>
     )
   }
