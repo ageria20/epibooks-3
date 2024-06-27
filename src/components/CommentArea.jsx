@@ -1,6 +1,8 @@
 import { Component } from "react";
 
 import CommentList from "./CommentList";
+import { Alert } from "react-bootstrap";
+import AddComment from "./AddComment";
 
 
 class CommentArea extends Component {
@@ -34,7 +36,12 @@ class CommentArea extends Component {
     }
     render() {
         return (
-            <CommentList comments={this.state.comments}/>
+            <>
+            <h3>Commenti</h3>
+            {this.state.comments.length > 0 ?  <CommentList comments={this.state.comments}/> : <Alert> Non sono presenti recensioni </Alert>}
+            <h3>Aggiungi Commento</h3>
+            <AddComment asin={this.props.asin}/>
+            </>
         )
     }
 }
